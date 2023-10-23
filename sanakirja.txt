@@ -1,2 +1,5 @@
 talo house
 auto car
+vene boat
+laiva ship
+kissa cat
