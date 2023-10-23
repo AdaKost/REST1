@@ -54,10 +54,16 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get("/sanakirja", (req, res) => {
-  res.json(sanakirja);
+app.post("/", (req, res) => {
+  res.send("Post");
+});
+
+app.get("/", (req, res) => {
+  res.send("GET");
 });
 
 app.listen(port, () => {
   console.log(`Kuunnellaan portissa ${port}`);
 });
+
+// GET metodi
