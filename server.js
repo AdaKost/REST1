@@ -55,15 +55,14 @@ app.use(function (req, res, next) {
 });
 
 app.post("/", (req, res) => {
-  res.send("Post");
+  res.status(200).send("Post");
 });
 
-app.get("/", (req, res) => {
-  res.send("GET");
+app.get("/:sanaSuomeksi", (req, res) => {
+  const sana = req.params.sanaSuomeksi;
+  res.status(200).send(sana);
 });
 
 app.listen(port, () => {
   console.log(`Kuunnellaan portissa ${port}`);
 });
-
-// GET metodi
