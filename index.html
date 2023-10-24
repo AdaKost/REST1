@@ -7,7 +7,31 @@
       $(document).ready(function () {
         $('[name="Submit"]').click(function () {
           //tähän omaa koodia
+          alert("lisäys");
+
+          const data = {
+            fin: $("#fi").val(),
+            eng: $("#en").val(),
+          };
+
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/",
+            dataType: "json",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+          })
+            .done((data) => {
+              console.log({ data });
+            })
+            .fail((err) => {
+              console.error(err);
+            })
+            .always(() => {
+              console.log("always called");
+            });
         });
+        e.preventDefault();
       });
     </script>
 
@@ -15,6 +39,22 @@
       $(document).ready(function () {
         $('[name="Translate"]').click(function () {
           //tähän omaa koodia
+
+          alert("haku");
+
+          const data = {
+            fin: $("#fihaku").val(),
+          };
+
+          $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/kissa",
+            dataType: "json",
+            data: JSON.stringify(data),
+            success: function (data, textStatus, xhr) {
+              console.log(data);
+            },
+          });
         });
       });
     </script>
@@ -26,8 +66,8 @@
       <th>Anna sana:</th>
       <td>
         <input
-          name="fi"
-          id="fi"
+          name="fihaku"
+          id="fihaku"
           type="text"
           value=""
           maxlength="35"
