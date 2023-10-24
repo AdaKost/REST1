@@ -54,8 +54,16 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post("/", (req, res) => {
-  res.status(200).send("Post");
+/*
+TÄHÄN ON LAITETTU OMAT VERSIOT POST- JA GET-MENETELMISTÄ
+*/
+
+// POST-metodi: käytetään laittamalla JSON POST-requestin bodyyn, eli esim. {"fin":"koira", "eng":"dog"}
+app.post("/", (req, res, next) => {
+  let suomeksi = req.body.fin;
+  let englanniksi = req.body.eng;
+
+  res.status(200).send(req.body.fin);
 });
 
 // GET-metodi, joka palauttaa suomeksi annetun sanan englanniksi, jos se on sanakirjassa. Muuten palauttaa "Ei löytynyt",
