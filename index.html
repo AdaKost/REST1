@@ -40,22 +40,20 @@
         $('[name="Translate"]').click(function () {
           //tähän omaa koodia
 
-          alert("haku");
+          //alert("haku");
 
-          const data = {
-            fin: $("#fihaku").val(),
-          };
+          const data = $("#fihaku").val();
 
           $.ajax({
+            url: "http://localhost:3000/" + data,
             type: "GET",
-            url: "http://localhost:3000/kissa",
-            dataType: "json",
-            data: JSON.stringify(data),
-            success: function (data, textStatus, xhr) {
-              console.log(data);
+            dataType: "text",
+            success: function (data) {
+              alert(data);
             },
           });
         });
+        e.preventDefault();
       });
     </script>
   </head>
