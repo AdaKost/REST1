@@ -60,8 +60,15 @@ TÄHÄN ON LAITETTU OMAT VERSIOT POST- JA GET-MENETELMISTÄ
 
 // POST-metodi: käytetään laittamalla JSON POST-requestin bodyyn, eli esim. {"fin":"koira", "eng":"dog"}
 app.post("/", (req, res, next) => {
-  let suomeksi = req.body.fin;
-  let englanniksi = req.body.eng;
+  const suomeksi = req.body.fin;
+  const englanniksi = req.body.eng;
+  const rivi = "\n" + suomeksi + " " + englanniksi;
+
+  try {
+    fs.appendFileSync("sanakirja.txt", rivi);
+  } catch (err) {
+    console.error(err);
+  }
 
   res.status(200).send(req.body.fin);
 });

@@ -3,3 +3,4 @@ auto car
 vene boat
 laiva ship
 kissa cat
+koira dog
