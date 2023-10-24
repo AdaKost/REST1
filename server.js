@@ -58,9 +58,19 @@ app.post("/", (req, res) => {
   res.status(200).send("Post");
 });
 
+// GET-metodi, joka palauttaa suomeksi annetun sanan englanniksi, jos se on sanakirjassa. Muuten palauttaa "Ei löytynyt",
 app.get("/:sanaSuomeksi", (req, res) => {
   const sana = req.params.sanaSuomeksi;
-  res.status(200).send(sana);
+
+  let jsonSana = sanakirja.find(function (element) {
+    return element.fin == sana;
+  });
+
+  if (jsonSana == undefined) {
+    res.status(200).send("Ei löytynyt");
+  } else {
+    res.status(200).send(jsonSana.eng);
+  }
 });
 
 app.listen(port, () => {
