@@ -4,3 +4,4 @@ vene boat
 laiva ship
 kissa cat
 koira dog
+hiiri mouse

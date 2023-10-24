@@ -64,13 +64,21 @@ app.post("/", (req, res, next) => {
   const englanniksi = req.body.eng;
   const rivi = "\n" + suomeksi + " " + englanniksi;
 
+  const uusi_sana = {
+    fin: suomeksi,
+    eng: englanniksi,
+  };
+
+  sanakirja.push(uusi_sana);
+
+  // Käytetään appendia, niin ei tarvitse kirjoittaa koko sanakirjaa joka kerta tiedostoon, ainoastaan uusi sana
   try {
     fs.appendFileSync("sanakirja.txt", rivi);
   } catch (err) {
     console.error(err);
   }
 
-  res.status(200).send(req.body.fin);
+  res.status(201).send(req.body.fin + " " + req.body.eng + " lisätty."); // Ilmoitetaan lisäämisestä
 });
 
 // GET-metodi, joka palauttaa suomeksi annetun sanan englanniksi, jos se on sanakirjassa. Muuten palauttaa "Ei löytynyt",
