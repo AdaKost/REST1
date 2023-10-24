@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('[name="Submit"]').click(function () {
+          //tähän omaa koodia
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('[name="Translate"]').click(function () {
+          //tähän omaa koodia
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Sanakirja REST API:lla - käyttöliittymä</h1>
+
+    <form id="form" name="form">
+      <th>Anna sana:</th>
+      <td>
+        <input
+          name="fi"
+          id="fi"
+          type="text"
+          value=""
+          maxlength="35"
+          size="35"
+        />
+      </td>
+      <td>
+        <input name="Translate" type="button" value="Käännä englanniksi!" />
+      </td>
+    </form>
+
+    <br />
+    <br />
+    <form id="form" name="form">
+      <th>Sanapari:</th>
+      <td>
+        <input
+          name="fi"
+          id="fi"
+          type="text"
+          value=""
+          maxlength="35"
+          size="35"
+        />
+      </td>
+      <td>
+        <input
+          name="en"
+          id="en"
+          type="text"
+          value=""
+          maxlength="35"
+          size="35"
+        />
+      </td>
+
+      <td>
+        <input name="Submit" type="button" value="Tallenna" />
+      </td>
+    </form>
+  </body>
+</html>
